@@ -1,9 +1,8 @@
--- First VHDL code for SYDE-192 Lab 
 -- It implements three primitive gates of AND, OR, and NOT (inverter) 
 
-library ieee;					-- Declare that you want to use IEEE libraries 
-use ieee.std_logic_1164.all;	-- Library for standard logic circuits 
--- use ieee.numeric_std.all; 	-- Another useful library for UNSIGNED numbers 
+library ieee;
+use ieee.std_logic_1164.all;
+
 
 entity Lab_2_4_2 is 	-- entity definition 
 	port( KEY: 		in 	std_logic_vector(3 downto 0); 	-- Push buttons 
