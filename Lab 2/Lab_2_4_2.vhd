@@ -8,16 +8,16 @@ entity Lab_2_4_2 is 	-- entity definition
 	port( KEY: 		in 	std_logic_vector(3 downto 0); 	-- Push buttons 
 			SW: 		in 	std_logic_vector(9 downto 0); 	-- Toggle switches 
 			LEDR:		out 	std_logic_vector(3 downto 0); 	-- Red LEDs 
-			LEDG:		out 	std_logic_vector(3 downto 0)		-- Green LEDs 
+			LEDG:		out 	std_logic_vector(3 downto 0)	-- Green LEDs 
 			); 
 end entity Lab_2_4_2; 
 
 architecture main of Lab_2_4_2 is 
 signal a0, a1, b1, b0:	std_logic;	-- Naming inputs 
-signal p0: 				std_logic;	-- Naming outputs
-signal p1: 				std_logic;
-signal p2: 				std_logic;
-signal p3: 				std_logic;			
+signal p0: 		std_logic;	-- Naming outputs
+signal p1: 		std_logic;
+signal p2: 		std_logic;
+signal p3: 		std_logic;			
 
 begin 
 a1 <= SW(0); 
@@ -35,4 +35,3 @@ LEDR(1) <= p1;
 LEDR(2) <= p2;
 LEDR(3) <= p3; 
 end architecture main; 
-			
