@@ -1,11 +1,12 @@
-
+-- Implements a four-bit adder using four modules of a full-adder
 library ieee;					
 use ieee.std_logic_1164.all;	
--- use ieee.numeric_std.all;
 
 entity lab_3_4_2 is 	-- entity definition 
-	port(	SW: 		in 	std_logic_vector(9 downto 0); 	-- Toggle switches 
-			LEDG:		out 	std_logic_vector(9 downto 0));   -- Red switches
+	port(
+		SW: 		in 	std_logic_vector(9 downto 0); 	-- Toggle switches 
+		LEDG:		out 	std_logic_vector(9 downto 0)	-- Red switches
+	);
 end entity; 
 
 architecture RTL of lab_3_4_2 is 
@@ -14,8 +15,9 @@ signal cout1, cout2, cout3, cout4: std_logic;
 signal s0, s1, s2, s3: std_logic;
 
 component Full_adder is 
-	port (a, b, cin: 	in  std_logic; 
-			s, cout: 	out std_logic); 
+	port (
+		a, b, cin: 	in  std_logic; 
+		s, cout: 	out std_logic); 
 end component; 
 
 begin 
