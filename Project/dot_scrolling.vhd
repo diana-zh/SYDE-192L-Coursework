@@ -3,15 +3,17 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity dot_scrolling is 
-	port(CLOCK_50_B5B:	in  std_logic ;    -- 50MHz clock on the board 
-		 GPIO:			out std_logic_vector(35 downto 0)); 
+	port (
+		CLOCK_50_B5B:	in  std_logic ;    -- 50MHz clock on the board 
+		 GPIO:		out std_logic_vector(35 downto 0)
+	); 
 end entity dot_scrolling; 
 
 Architecture main of dot_scrolling is 
-signal counter_1hz: unsigned(25 downto 0); 
-signal clock_1hz: std_logic;
-signal row_driver: std_logic_vector(0 to 7) := "10000000"; 
-signal col_driver: std_logic_vector(0 to 8) := "101111111";
+signal counter_1hz:	unsigned(25 downto 0); 
+signal clock_1hz: 	std_logic;
+signal row_driver: 	std_logic_vector(0 to 7) := "10000000"; 
+signal col_driver: 	std_logic_vector(0 to 8) := "101111111";
 --col driver: must shift 0 rightwards. use arithmetic shifting to ensure there's only one 0 in the col driver
 -- using 9 bits for col driver so we can make sure MSB is 1 so we can employ arithmetic shifting
 -- (replaces MSB with MSB rather than a 0)
@@ -36,7 +38,7 @@ begin
 				col_driver <= "101111111"; -- resets col driver back to to
 				row_driver <= std_logic_vector(shift_right(unsigned(row_driver), 1)); -- shift row rightwards (increments to the next row)
 			else
-				col_driver <= std_logic_vector(shift_right(signed(col_driver), 1)); -- light up next col. we shift right using arithmetic shift.replaces MSB with MSB
+				col_driver <= std_logic_vector(shift_right(signed(col_driver), 1)); -- light up next col. we shift right using arithmetic shift. Replaces MSB with MSB
 			end if;
 			
 			if row_driver <= "00000001" and col_driver = "111111110" then -- last row AND last col, reset back to top
@@ -65,4 +67,3 @@ GPIO(30) <= col_driver(6);	GPIO(31) <= col_driver(6);
 GPIO(32) <= col_driver(7);	GPIO(33) <= col_driver(7); 
 GPIO(34) <= col_driver(8);	GPIO(35) <= col_driver(8); 
 end architecture main; 
-
