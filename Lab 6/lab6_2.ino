@@ -1,3 +1,5 @@
+// Implements a basic frequency counter when the Arduino system is connected to a frequency generator
+
 const int switchPin = 2; // the number of the input pin
 float startTime; // store starting time here
 float stopTime; // store ending time
