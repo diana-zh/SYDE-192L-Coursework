@@ -1,10 +1,13 @@
+-- Implements stationary letter Q displayed on LED Dot Matrix connected to FPGA board
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity stationary_q is 
-	port(CLOCK_50_B5B:	in  std_logic ;    -- 50MHz clock on the board 
-		 GPIO:			out std_logic_vector(35 downto 0)); 
+	port (
+		CLOCK_50_B5B:	in  std_logic ;    -- 50MHz clock on the board 
+		 GPIO:		out std_logic_vector(35 downto 0)
+	); 
 end entity stationary_q; 
 
 Architecture main of stationary_q is 
@@ -44,20 +47,18 @@ begin
 			end if;
 			
 
-			-- stationary g
+			-- stationary q
 			-- checking which rows we display the designated col
 			if col_driver 		<= "101111111" then row_driver 	<= "01111100";
 			elsif col_driver 	<= "110111111" then row_driver 	<= "10000010";
-			elsif col_driver 	<= "1110111111" then row_driver 	<= "10001010";
-			elsif col_driver 	<= "1111011111" then row_driver 	<= "10001010";
-			elsif col_driver 	<= "1111101111" then row_driver 	<= "01001110";
+			elsif col_driver 	<= "1110111111" then row_driver <= "10001010";
+			elsif col_driver 	<= "1111011111" then row_driver <= "10001010";
+			elsif col_driver 	<= "1111101111" then row_driver <= "01001110";
 			else row_driver 	<= "00000000";
 
-			end if;
-			
+			end if;			
 		end if;
-	end process;
-	
+	end process;	
 
 GPIO( 0) <= row_driver(0);	GPIO( 1) <= row_driver(0); 	-- Pin connections between GPIO port and the PCB 
 GPIO( 2) <= row_driver(1);	GPIO( 3) <= row_driver(1); 
@@ -77,6 +78,3 @@ GPIO(30) <= col_driver(6);	GPIO(31) <= col_driver(6);
 GPIO(32) <= col_driver(7);	GPIO(33) <= col_driver(7); 
 GPIO(34) <= col_driver(8);	GPIO(35) <= col_driver(8); 
 end architecture main; 
-
-
-
