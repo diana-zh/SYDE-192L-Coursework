@@ -1,4 +1,3 @@
-
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
@@ -11,8 +10,8 @@ entity modulus_clock_divider is
 	end entity; 
 
 architecture main of  modulus_clock_divider is
-	signal counter1:      unsigned(24 downto 0);
-	signal counter2:		 unsigned(25 downto 0);
+	signal counter1:	unsigned(24 downto 0);
+	signal counter2:	unsigned(25 downto 0);
 	signal clock_1_Hz: 	std_logic;
 
 
