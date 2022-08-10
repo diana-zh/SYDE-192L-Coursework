@@ -1,3 +1,5 @@
+// Implements a stopwatch timer displayed on the Serial Monitor
+
 const int switchPin = 2; // the number of the input pin
 long startTime; // store starting time here
 long stopTime; // store starting time here
@@ -27,7 +29,4 @@ void loop()
       Serial.print(" Seconds: ");
       Serial.print(secduration);
   }
- 
-   
-  
 }
