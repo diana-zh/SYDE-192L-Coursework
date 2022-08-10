@@ -1,3 +1,5 @@
+// A redesign of lab6_2.ino, this frequency counter has a changed pre-scale factor
+
 const int switchPin = 2; // the number of the input pin
 float startTime; // store starting time here
 float stopTime; // store ending time
