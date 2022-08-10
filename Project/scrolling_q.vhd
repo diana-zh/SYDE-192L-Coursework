@@ -1,11 +1,13 @@
-
+-- Displays a scrolling letter Q on LED Dot Matrix connected to FPGA board
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity scrolling_q is 
-	port(CLOCK_50_B5B:	in  std_logic ; 
-		 GPIO:			out std_logic_vector(35 downto 0)); 
+	port (
+		CLOCK_50_B5B:	in  std_logic ; 
+		 GPIO:		out std_logic_vector(35 downto 0)
+	); 
 end entity scrolling_q; 
 
 Architecture main of scrolling_q is 
@@ -13,9 +15,9 @@ signal counter_100Hz: unsigned(24 downto 0) := to_unsigned(249999, 25);
 signal scroll_counter: unsigned(24 downto 0) := to_unsigned(249999, 25); 
 signal column_counter: unsigned(3 downto 0) := to_unsigned(1, 4);
 
-signal clock: std_logic;
-signal row_driver: std_logic_vector(0 to 7) := "10000000";
-signal col_driver: std_logic_vector(0 to 7) := "11111111";
+signal clock:		std_logic;
+signal row_driver:	std_logic_vector(0 to 7) := "10000000";
+signal col_driver:	std_logic_vector(0 to 7) := "11111111";
 
 
 signal col_1: std_logic_vector(0 to 7) := "10001111"; -- initial displays of the columns to show 'G'
