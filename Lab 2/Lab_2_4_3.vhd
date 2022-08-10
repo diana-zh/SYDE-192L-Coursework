@@ -1,3 +1,4 @@
+-- Implements a 2 bit adder, allocating 4 toggle switches and 3 LEDs on an FGPA board
 library ieee;
 use ieee.std_logic_1164.all;
 
@@ -5,13 +6,13 @@ entity Lab_2_4_3 is 	-- entity definition
 	port( KEY: 		in 	std_logic_vector(3 downto 0); 	-- Push buttons 
 			SW: 		in 	std_logic_vector(9 downto 0); 	-- Toggle switches 
 			LEDR:		out 	std_logic_vector(3 downto 0); 	-- Red LEDs 
-			LEDG:		out 	std_logic_vector(7 downto 0)		-- Green LEDs 
+			LEDG:		out 	std_logic_vector(7 downto 0)	-- Green LEDs 
 			); 
 end entity Lab_2_4_3; 
 
 architecture main of Lab_2_4_3 is 
 signal a1, a0, b1, b0:	std_logic;	-- Naming inputs 
-signal c0, c1, c2: 				std_logic;	-- AND gate output for reading by XOR gate  
+signal c0, c1, c2: 	std_logic;	-- AND gate output for reading by XOR gate  
 
 begin 
 a1 <= SW(1); 
