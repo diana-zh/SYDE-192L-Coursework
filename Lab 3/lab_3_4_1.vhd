@@ -1,6 +1,6 @@
-library ieee;					-- Declare that you want to use IEEE libraries 
-use ieee.std_logic_1164.all;	-- Library for standard logic circuits 
--- use ieee.numeric_std.all; 	-- Another useful library for UNSIGNED numbers 
+library ieee;
+use ieee.std_logic_1164.all;
+
 
 entity lab_3_4_1 is 	-- entity definition 
 	port( 
