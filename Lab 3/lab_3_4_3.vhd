@@ -1,15 +1,15 @@
-
+-- An extension of Lab_3_4_2, this takes the four-bit adder system and outputs results onto HEX outputs
 library ieee;					
 use ieee.std_logic_1164.all;	
--- use ieee.numeric_std.all;
 
 entity lab_3_4_3 is 	-- entity definition 
-	port(	SW: 		in 	std_logic_vector(9 downto 0); 	-- Toggle switches 
-			LEDG:		out 	std_logic_vector(9 downto 0);
-			HEX0:		out	std_logic_vector(6 downto 0);
-			HEX1:		out	std_logic_vector(6 downto 0);
-			HEX2:		out	std_logic_vector(6 downto 0);
-			HEX3:		out	std_logic_vector(6 downto 0)
+	port (
+		SW: 		in 	std_logic_vector(9 downto 0); 	-- Toggle switches 
+		LEDG:		out 	std_logic_vector(9 downto 0);
+		HEX0:		out	std_logic_vector(6 downto 0);
+		HEX1:		out	std_logic_vector(6 downto 0);
+		HEX2:		out	std_logic_vector(6 downto 0);
+		HEX3:		out	std_logic_vector(6 downto 0)
 			);   -- Red switches
 end entity; 
 
@@ -21,13 +21,15 @@ signal blanking: std_logic;
 
 
 component Full_adder is 
-	port (a, b, cin: 	in  std_logic; 
-			s, cout: 	out std_logic); 
+	port (
+		a, b, cin: 	in  std_logic; 
+		s, cout: 	out std_logic); 
 end component;
 
 component seven_segment is 
-	port (segments_in, blanking: in std_logic;
-			segments_out: out std_logic);
+	port (
+		segments_in, blanking: 	in std_logic;
+		segments_out: 		out std_logic);
 end component;
 
 begin  
@@ -60,5 +62,3 @@ LEDG(3) <= s3;
 LEDG(4) <= cout4;
 
 end architecture; 
-
-
